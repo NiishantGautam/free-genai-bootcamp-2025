@@ -15,6 +15,51 @@ A unified launchpad to launch different learning apps
 - The API will be built using Flask
 - The API will always return JSON
 
+## Application Structure:
+The backend will have the following structure:
+
+lang-portal/
+├── backend/
+│   ├── app/
+│   │   ├── __init__.py          # Flask app and Smorest initialization
+│   │   ├── config.py
+│   │   ├── models/
+│   │   │   ├── __init__.py
+│   │   │   ├── word.py
+│   │   │   ├── group.py
+│   │   │   ├── study_session.py
+│   │   │   └── study_activity.py
+│   │   ├── api/
+│   │   │   ├── __init__.py      # Blueprint registration
+│   │   │   ├── dashboard/
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── views.py
+│   │   │   ├── words/
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── views.py
+│   │   │   └── study/
+│   │   │       ├── __init__.py
+│   │   │       └── views.py
+│   │   ├── schemas/             # Marshmallow schemas
+│   │   │   ├── __init__.py
+│   │   │   ├── word.py
+│   │   │   ├── group.py
+│   │   │   └── study.py
+│   │   └── utils/
+│   │       ├── __init__.py
+│   │       └── helpers.py
+│   ├── docs/                    # API documentation
+│   │   └── openapi.json        # Auto-generated OpenAPI spec
+│   ├── migrations/
+│   ├── seeds/
+│   ├── tests/
+│   ├── .env
+│   ├── .gitignore
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   └── run.py
+
 ## Database Schema:
 The database will have the following tables:
 - words - Stored Vocabulary words
